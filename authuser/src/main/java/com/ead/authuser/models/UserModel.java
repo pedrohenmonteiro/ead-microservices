@@ -21,6 +21,31 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "TB_USERS")
 public class UserModel {
+
+    public UserModel() {
+    }
+
+    
+
+    public UserModel(UUID userId, String username, String email, String password, String fullName,
+            UserStatus userStatus, UserType userType, String phoneNumber, String cpf, String imageUrl,
+            LocalDateTime creationDate, LocalDateTime lastUpdateDate) {
+        this.userId = userId;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.userStatus = userStatus;
+        this.userType = userType;
+        this.phoneNumber = phoneNumber;
+        this.cpf = cpf;
+        this.imageUrl = imageUrl;
+        this.creationDate = creationDate;
+        this.lastUpdateDate = lastUpdateDate;
+    }
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
@@ -63,22 +88,6 @@ public class UserModel {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime lastUpdateDate;
 
-    public UserModel(UUID userId, String username, String email, String password, String fullName,
-            UserStatus userStatus, UserType userType, String phoneNumber, String cpf, String imageUrl,
-            LocalDateTime creationDate, LocalDateTime lastUpdateDate) {
-        this.userId = userId;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.fullName = fullName;
-        this.userStatus = userStatus;
-        this.userType = userType;
-        this.phoneNumber = phoneNumber;
-        this.cpf = cpf;
-        this.imageUrl = imageUrl;
-        this.creationDate = creationDate;
-        this.lastUpdateDate = lastUpdateDate;
-    }
 
     public UUID getUserId() {
         return userId;
